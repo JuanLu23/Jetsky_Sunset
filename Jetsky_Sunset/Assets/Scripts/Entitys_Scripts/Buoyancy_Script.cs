@@ -17,7 +17,7 @@ public class Buoyancy_Script : MonoBehaviour
     Rigidbody m_Rigidbody;
 
     int floatersUnderWater;
-    bool underwater;
+    public bool underwater;
 
     // Start is called before the first frame update
     void Start()
