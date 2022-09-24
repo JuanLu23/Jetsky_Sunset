@@ -5,11 +5,11 @@ using UnityEngine;
 public class Ocean_Manager : MonoBehaviour
 {
 
-    public float waveHeight = 0.5f;
+    public float waveHeight;
 
-    public float waveFrequency = 1f;
+    public float waveFrequency;
 
-    public float waveSpeed = 1f;
+    public float waveSpeed;
 
     public Transform _ocean;
 
@@ -25,26 +25,29 @@ public class Ocean_Manager : MonoBehaviour
 
     void SetVariables()
     {
-        _oceanMaterial = GetComponent<Renderer>().sharedMaterial;
+        _oceanMaterial = _ocean.GetComponent<Renderer>().sharedMaterial;
         _displacementWaves = (Texture2D)_oceanMaterial.GetTexture("_Wave_Displacement_Map");
     }
 
     public float WaterHeightAtPosition(Vector3 _position)
     {
-        return _ocean.position.y + _displacementWaves.GetPixelBilinear(_position.x * waveFrequency, _position.z * waveFrequency + Time.time * waveSpeed).g * waveHeight * _ocean.localScale.x;
+        return _ocean.position.y + _displacementWaves.GetPixelBilinear(_position.x * waveFrequency/100, _position.z * waveFrequency/100 + Time.time * waveSpeed/100).g * waveHeight/100 * _ocean.localScale.x;
     }
 
-    private void OnValidate()
+    void OnValidate()
     {
         if (!_oceanMaterial)
         {
             SetVariables();
         }
+        UpdateMaterial();
 
     }
 
     void UpdateMaterial()
     {
-
+        _oceanMaterial.SetFloat("_Waves_Frequency", waveFrequency/100);
+        _oceanMaterial.SetFloat("_Waves_Speed", waveSpeed/100);
+        _oceanMaterial.SetFloat("_Wave_Height", waveHeight/100);
     }
 }

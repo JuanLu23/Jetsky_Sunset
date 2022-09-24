@@ -12,7 +12,9 @@ public class Buoyancy_Script : MonoBehaviour
     public float airDrag = 0f;
     public float airAngularDrag = 0.05f;
     public float floatingPower = 15f;
-    public float waterHeight = 0f;
+    public float waterHeight;
+
+    Ocean_Manager ocean_Manager;
 
     Rigidbody m_Rigidbody;
 
@@ -23,16 +25,17 @@ public class Buoyancy_Script : MonoBehaviour
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        ocean_Manager = FindObjectOfType<Ocean_Manager>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         floatersUnderWater = 0;
         for(int i = 0; i < floaters.Length; i++)
         {
-            float difference = floaters[i].position.y - waterHeight;
-
+            float difference = floaters[i].position.y - ocean_Manager.WaterHeightAtPosition(floaters[i].position);
+            Debug.Log(difference);
             if (difference < 0)
             {
                 m_Rigidbody.AddForceAtPosition(Vector3.up * floatingPower * Mathf.Abs(difference), floaters[i].position, ForceMode.Force);
