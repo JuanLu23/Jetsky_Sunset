@@ -159,7 +159,7 @@ Material:
     - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
-    - _Depth_Fade: 0.88
+    - _Depth_Fade: 1.21
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 1
@@ -202,8 +202,8 @@ Material:
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
-    - _Normal_Map_Tilling: 0.16
-    - _Normal_Strength: 0.54
+    - _Normal_Map_Tilling: 0.02
+    - _Normal_Strength: 1.42
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -253,9 +253,9 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _Wave_Height: 1
-    - _Waves_Frequency: 0.01
-    - _Waves_Speed: 0.05
+    - _Wave_Height: 0.03
+    - _Waves_Frequency: 0.003
+    - _Waves_Speed: 0.01
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
@@ -263,8 +263,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.17065683, g: 0.22618887, b: 0.5566038, a: 1}
-    - _Color_2: {r: 0.30704877, g: 0.6272752, b: 0.9433962, a: 0}
+    - _Color: {r: 0.09540761, g: 0.12388757, b: 0.3018868, a: 1}
+    - _Color_2: {r: 0.08699717, g: 0.5650314, b: 0.8018868, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
